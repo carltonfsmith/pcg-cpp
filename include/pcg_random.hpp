@@ -618,7 +618,7 @@ operator>>(std::basic_istream<CharT,Traits>& in,
 
     if (!in.fail()) {
         bool good = true;
-        if (multiplier != rng.multiplier()) {
+        if (multiplier != itype(rng.multiplier())) {
            good = false;
         } else if (rng.can_specify_stream) {
            rng.set_stream(increment >> 1);
