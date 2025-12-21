@@ -15,6 +15,12 @@ target_include_directories(pcg-cpp INTERFACE
 
 target_compile_features(pcg-cpp INTERFACE cxx_std_11)
 
+if(MSVC)
+    target_compile_options(pcg-cpp INTERFACE /W4) # /Wall is extremely noisy on MSVC
+else()
+    target_compile_options(pcg-cpp INTERFACE -Wall -Wextra -Wpedantic)
+endif()
+
 # Options
 option(PCG_CPP_BUILD_SAMPLES "Build samples" ON)
 option(PCG_CPP_BUILD_TESTS "Build tests" ON)

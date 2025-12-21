@@ -676,8 +676,8 @@ itype engine<xtype,itype,output_mixin,output_previous,stream_mixin,
     itype cur_state, itype newstate, itype cur_mult, itype cur_plus, itype mask)
 {
     constexpr itype ONE  = 1u;  // itype could be weird, so use constant
-    bool is_mcg = cur_plus == itype(0);
-    itype the_bit = is_mcg ? itype(4u) : itype(1u);
+    bool is_mcg_internal = cur_plus == itype(0);
+    itype the_bit = is_mcg_internal ? itype(4u) : itype(1u);
     itype distance = 0u;
     while ((cur_state & mask) != (newstate & mask)) {
        if ((cur_state & the_bit) != (newstate & the_bit)) {
@@ -689,7 +689,7 @@ itype engine<xtype,itype,output_mixin,output_previous,stream_mixin,
        cur_plus = (cur_mult+ONE)*cur_plus;
        cur_mult *= cur_mult;
     }
-    return is_mcg ? distance >> 2 : distance;
+    return is_mcg_internal ? distance >> 2 : distance;
 }
 
 template <typename xtype, typename itype,
