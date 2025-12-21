@@ -1,52 +1,74 @@
 # PCG Random Number Generation, C++ Edition
 
+[![Maintenance Status](https://img.shields.io/badge/status-maintained-brightgreen.svg)](https://github.com/Total-Random/pcg-cpp)
+[![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](https://opensource.org/licenses/MIT)
+
 [PCG-Random website]: http://www.pcg-random.org
 
-This code provides an implementation of the PCG family of random number
-generators, which are fast, statistically excellent, and offer a number of
-useful features.
+This is the **maintained** version of the PCG C++ library, hosted by the **Total-Random** organization. We have taken over maintenance to ensure this statistically excellent family of random number generators continues to work seamlessly on modern systems and compilers.
 
-Full details can be found at the [PCG-Random website].  This version
-of the code provides many family members -- if you just want one
-simple generator, you may prefer the minimal C version of the library.
+## Why this fork?
 
-There are two kinds of generator, normal generators and extended generators.
-Extended generators provide *k* dimensional equidistribution and can perform
-party tricks, but generally speaking most people only need the normal
-generators.
+The original repository by Melissa O'Neill (`imneme/pcg-cpp`) has been a cornerstone of the C++ ecosystem but hasn't seen updates in several years. **Total-Random** exists to keep such vital legacy libraries alive by integrating community fixes, supporting new architectures, and fixing build breakages on modern IDEs.
 
-There are two ways to access the generators, using a convenience typedef
-or by using the underlying templates directly (similar to C++11's `std::mt19937` typedef vs its `std::mersenne_twister_engine` template).  For most users, the convenience typedef is what you want, and probably you're fine with `pcg32` for 32-bit numbers.  If you want 64-bit numbers, either use `pcg64` (or, if you're on a 32-bit system, making 64 bits from two calls to `pcg32_k2` may be faster).
+### Key Improvements in this Fork:
+- **Windows ARM64 Support**: Native support for MSVC on ARM64 architectures (Surface Pro, Apple Silicon via VM, etc.) using `__umulh` intrinsics.
+- **Improved MSVC Compatibility**: Fixed ambiguous operator errors (`C2678`) in `set_stream` and `operator>>`.
+- **Optimized `unxorshift`**: Implemented an optimized version of the inverse xorshift operation, improving performance for large integer types.
+- **Consistent Typing**: Unified integer type handling across different platforms to avoid compiler warnings and errors.
 
-## Documentation and Examples
+## About PCG
 
-Visit [PCG-Random website] for information on how to use this library, or look
-at the sample code in the `sample` directory -- hopefully it should be fairly
-self explanatory.
+PCG is a family of simple fast space-efficient statistically good algorithms for random number generation. Unlike many common generators, it's not just "good enough" — it passes the most stringent statistical tests while being faster and smaller than most alternatives.
 
-## Building
+For full details on the theory and performance, visit the [PCG-Random website].
 
-The code is written in C++11, as an include-only library (i.e., there is
-nothing you need to build).  There are some provided demo programs and tests
-however.  On a Unix-style system (e.g., Linux, Mac OS X) you should be able
-to just type
+## Usage
 
-    make
+This is a **header-only** library. To use it, simply add the `include` directory to your project's include path and:
 
-To build the demo programs.
+```cpp
+#include "pcg_random.hpp"
 
-## Testing
+// Standard 32-bit PCG generator
+pcg32 rng;
 
-Run
+// Seed it (optional, uses a fixed seed by default)
+rng.seed(pcg_extras::seed_seq_from<std::random_device>{});
 
-    make test
+// Generate a number
+uint32_t x = rng();
+```
+
+- Use `pcg32` for 32-bit output.
+- Use `pcg64` for 64-bit output (now highly optimized for 64-bit systems and ARM64).
+
+## Building Demos & Tests
+
+While the library itself is header-only, we provide tests and samples:
+
+### Unix-style (Linux, macOS, MinGW)
+```bash
+make
+make test
+```
+
+### Windows (MSVC)
+This fork is specifically patched to support building with Visual Studio 2019/2022. You can include the headers directly in your solution without any extra configuration.
 
 ## Directory Structure
 
-The directories are arranged as follows:
+* `include/` — The core library (headers).
+* `sample/` — Readable examples showing how to use the high-level API.
+* `test-high/` — Functional and statistical tests.
 
-* `include` -- contains `pcg_random.hpp` and supporting include files
-* `test-high` -- test code for the high-level API where the functions have
-  shorter, less scary-looking names.
-* `sample` -- sample code, some similar to the code in `test-high` but more 
-  human readable, some other examples too
+## Maintenance & Contributions
+
+We welcome bug fixes and compatibility patches. If you find an issue, especially on newer hardware or compiler versions, please open an issue or pull request in the [Total-Random/pcg-cpp](https://github.com/Total-Random/pcg-cpp) repository.
+
+## License
+
+This code is distributed under the **Apache License, Version 2.0** or the **MIT License**, at your option. See the header of each file for details.
+
+---
+*Maintained with ❤️ by the Total-Random Team.*
