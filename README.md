@@ -53,8 +53,19 @@ make
 make test
 ```
 
+### Modern CMake (All Platforms)
+This is the recommended way to build and integrate the library:
+
+```bash
+mkdir build
+cd build
+cmake ..
+cmake --build .
+ctest .
+```
+
 ### Windows (MSVC)
-This fork is specifically patched to support building with Visual Studio 2019/2022. You can include the headers directly in your solution without any extra configuration.
+This fork is specifically patched to support building with Visual Studio 2019/2022. You can use the CMake instructions above to generate a Visual Studio solution, or simply include the headers directly in your project.
 
 ## Directory Structure
 
