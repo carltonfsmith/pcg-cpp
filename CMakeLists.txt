@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(pcg-cpp VERSION 0.9.1 LANGUAGES CXX)
+project(pcg-cpp VERSION 1.0 LANGUAGES CXX)
 
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)

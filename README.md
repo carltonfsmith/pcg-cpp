@@ -1,7 +1,9 @@
 # PCG Random Number Generation, C++ Edition
 
 [![Maintenance Status](https://img.shields.io/badge/status-maintained-brightgreen.svg)](https://github.com/Total-Random/pcg-cpp)
+[![CI](https://github.com/Total-Random/pcg-cpp/actions/workflows/ci.yml/badge.svg)](https://github.com/Total-Random/pcg-cpp/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.0-blue.svg)](CMakeLists.txt)
 
 [PCG-Random website]: http://www.pcg-random.org
 
