@@ -90,6 +90,7 @@
 
 #ifdef _MSC_VER
     #pragma warning(disable:4146)
+    #pragma warning(disable:4127) // conditional expression is constant
 #endif
 
 #ifdef _MSC_VER

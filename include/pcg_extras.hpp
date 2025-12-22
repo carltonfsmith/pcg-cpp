@@ -55,6 +55,9 @@
 
 #ifdef __GNUC__
     #define PCG_NOINLINE __attribute__((noinline))
+#elif defined(_MSC_VER)
+    #define PCG_NOINLINE __declspec(noinline)
+    #pragma warning(disable:4127) // conditional expression is constant
 #else
     #define PCG_NOINLINE
 #endif
