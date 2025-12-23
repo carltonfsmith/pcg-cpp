@@ -22,6 +22,10 @@ jobs:
             compiler: clang
             cc: clang
             cxx: clang++
+          - os: ubuntu-latest
+            compiler: intel-icx
+            cc: icx
+            cxx: icpx
           - os: windows-latest
             compiler: msvc
           - os: macos-latest
@@ -29,6 +33,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Install Intel oneAPI (Linux)
+      if: matrix.compiler == 'intel-icx' && runner.os == 'Linux'
+      run: |
+        wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
+        sudo apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
+        echo "deb https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sources.list.d/oneAPI.list
+        sudo apt-get update
+        sudo apt-get install -y intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic
+        source /opt/intel/oneapi/setvars.sh
+        echo "CC=icx" >> $GITHUB_ENV
+        echo "CXX=icpx" >> $GITHUB_ENV
 
     - name: Configure CMake
       run: >
