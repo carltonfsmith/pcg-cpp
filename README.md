@@ -19,6 +19,8 @@ The original repository by Melissa O'Neill (`imneme/pcg-cpp`) has been a corners
 - **Optimized `unxorshift`**: Implemented an optimized version of the inverse xorshift operation, improving performance for large integer types.
 - **Consistent Typing**: Unified integer type handling across different platforms to avoid compiler warnings and errors.
 
+Detailed information about integrated community fixes and contributors can be found in [CREDITS.md](CREDITS.md).
+
 ## About PCG
 
 PCG is a family of simple fast space-efficient statistically good algorithms for random number generation. Unlike many common generators, it's not just "good enough" — it passes the most stringent statistical tests while being faster and smaller than most alternatives.

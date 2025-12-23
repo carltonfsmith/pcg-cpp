@@ -97,6 +97,7 @@
     #define PCG_ALWAYS_INLINE __forceinline
     #if defined(_MSC_FULL_VER) && _MSC_FULL_VER >= 190024210
         // available since VS 2015 Update 2/3
+        // This fix is from imneme/pcg-cpp PR #66
         #define PCG_EBO __declspec(empty_bases)
     #else
         #define PCG_EBO

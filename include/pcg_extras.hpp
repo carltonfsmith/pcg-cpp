@@ -261,6 +261,8 @@ inline std::istream& operator>>(std::istream& in, uint8_t& value)
  * XorShifts are invertable, but they are someting of a pain to invert.
  * This function backs them out.  It's used by the whacky "inside out"
  * generator defined later.
+ * 
+ * This optimized implementation is from imneme/pcg-cpp PR #82.
  */
 
 template <typename itype>
@@ -577,6 +579,7 @@ private:
     RngType rng_;
 
 public:
+    // This fix is from imneme/pcg-cpp commit 1eeda5f
     typedef uint_least32_t result_type;
 
     template<typename... Args>

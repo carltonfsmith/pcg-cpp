@@ -102,6 +102,7 @@ namespace pcg_extras {
 
 #if defined(__GNUC__)   // Any GNU-compatible compiler supporting C++11 has
                         // some useful intrinsics we can use.
+                        // These bitcount_t casts are from SupercriticalSynthesizers/pcg-cpp PR fix-gcc-warnings
 
 inline bitcount_t flog2(uint32_t v)
 {
