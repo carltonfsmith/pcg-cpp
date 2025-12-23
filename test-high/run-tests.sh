@@ -19,21 +19,37 @@
 # For additional information about the PCG random number generation scheme,
 # visit http://www.pcg-random.org/.
 #
-# Determine where the executables are (standard Makefile behavior)
+# Determine where the executables are
+# Priority: Current Dir (Makefile) -> ../build/test-high (CMake)
 BASEDIR=$(dirname "$0")
 cd "$BASEDIR"
 
 BINDIR="."
 
+# Check if executables are in current directory (Makefile build)
+if [ ! -f "./check-pcg32" ] && [ ! -f "./check-pcg32.exe" ]; then
+    # Try CMake build directories
+    if [ -f "../build/test-high/check-pcg32" ]; then
+        BINDIR="../build/test-high"
+    elif [ -f "../build/test-high/Release/check-pcg32.exe" ]; then
+        BINDIR="../build/test-high/Release"
+    elif [ -f "../build/test-high/Debug/check-pcg32.exe" ]; then
+        BINDIR="../build/test-high/Debug"
+    else
+        echo "ERROR: Cannot find test executables. Please build the project first." >&2
+        exit 1
+    fi
+fi
+
 # Function to run a test, handling potential .exe extension
 run_test() {
     TEST_NAME=$1
-    if [ -f "./$TEST_NAME.exe" ]; then
-        "./$TEST_NAME.exe"
-    elif [ -f "./$TEST_NAME" ]; then
-        "./$TEST_NAME"
+    if [ -f "$BINDIR/$TEST_NAME.exe" ]; then
+        "$BINDIR/$TEST_NAME.exe"
+    elif [ -f "$BINDIR/$TEST_NAME" ]; then
+        "$BINDIR/$TEST_NAME"
     else
-        echo "ERROR: $TEST_NAME not found in $PWD" >&2
+        echo "ERROR: $TEST_NAME not found in $BINDIR" >&2
         return 1
     fi
 }
