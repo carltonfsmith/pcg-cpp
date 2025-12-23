@@ -61,10 +61,10 @@ make test
 This is the recommended way to build and integrate the library:
 
 ```bash
-mkdir build
+```bash
+cmake -S . -B build
+cmake --build build
 cd build
-cmake ..
-cmake --build .
 ctest .
 ```
 
