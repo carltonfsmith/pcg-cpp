@@ -1,4 +1,4 @@
-set(SAMPLE_TARGETS basic_usage pcg-demo codebook cppref-sample make-partytrick)
+set(SAMPLE_TARGETS basic_usage pcg-demo codebook cppref-sample make-partytrick check-output)
 
 foreach(sample ${SAMPLE_TARGETS})
     add_executable(${sample} ${sample}.cpp)
