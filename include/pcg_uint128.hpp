@@ -737,6 +737,7 @@ uint_x4<UInt,UIntX2> operator*(const uint_x4<UInt,UIntX2>& a,
 #if defined(_M_AMD64) || defined(_M_IX86)
 #pragma intrinsic(_umul128)
 #elif defined(_M_ARM64)
+// This fix is from imneme/pcg-cpp PR #99 by Demonese
 #pragma intrinsic(__umulh)
 #else
 #error Unsupported architecture

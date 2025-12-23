@@ -24,11 +24,12 @@ This modernized fork of `pcg-cpp` by **Total-Random** integrates several critica
 - **Author:** [Timo Alho](https://github.com/tialho)
 - **Description:** Resolves various GCC warnings (clz/ctz truncation) when building with `-Wall`.
 
-## Total-Random Improvements
-
 ### 5. Native Windows ARM64 Support
-- **Author:** [Total-Random](https://github.com/Total-Random)
+- **Origin:** [imneme/pcg-cpp PR #99](https://github.com/imneme/pcg-cpp/pull/99)
+- **Author:** [Demonese](https://github.com/Demonese)
 - **Description:** Added native support for ARM64 on MSVC using `__umulh` for efficient 128-bit multiplication.
+
+## Total-Random Improvements
 
 ### 6. Modern CMake Build System
 - **Author:** [Total-Random](https://github.com/Total-Random)

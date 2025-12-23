@@ -13,10 +13,10 @@ This is the **maintained** version of the PCG C++ library, hosted by the **Total
 
 The original repository by Melissa O'Neill (`imneme/pcg-cpp`) has been a cornerstone of the C++ ecosystem but hasn't seen updates in several years. **Total-Random** exists to keep such vital legacy libraries alive by integrating community fixes, supporting new architectures, and fixing build breakages on modern IDEs.
 
-### Key Improvements in this Fork:
-- **Windows ARM64 Support**: Native support for MSVC on ARM64 architectures (Surface Pro, Apple Silicon via VM, etc.) using `__umulh` intrinsics.
+### Key Improvements and Integrated Fixes:
+- **Windows ARM64 Support**: Integrated native support for MSVC on ARM64 architectures (Surface Pro, Apple Silicon via VM, etc.) using `__umulh` intrinsics.
 - **Improved MSVC Compatibility**: Fixed ambiguous operator errors (`C2678`) in `set_stream` and `operator>>`.
-- **Optimized `unxorshift`**: Implemented an optimized version of the inverse xorshift operation, improving performance for large integer types.
+- **Optimized `unxorshift`**: Integrated an optimized version of the inverse xorshift operation for better performance.
 - **Consistent Typing**: Unified integer type handling across different platforms to avoid compiler warnings and errors.
 
 Detailed information about integrated community fixes and contributors can be found in [CREDITS.md](CREDITS.md).
