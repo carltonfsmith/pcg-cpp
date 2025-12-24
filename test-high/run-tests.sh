@@ -24,7 +24,7 @@
 BASEDIR=$(dirname "$0")
 cd "$BASEDIR"
 
-BINDIR="."
+BINDIR="${BINDIR:-.}"
 
 # Check if executables are in current directory (Makefile build)
 if [ ! -f "./check-pcg32" ] && [ ! -f "./check-pcg32.exe" ]; then
